@@ -1,0 +1,194 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #0f172a, #020617);
+    color: #e2e8f0;
+}
+
+/* Container */
+.content {
+    width: 60%;
+    max-width: 800px;
+    margin: 40px auto;
+    background: #1e293b;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Headings */
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #38bdf8;
+}
+
+/* Form */
+form {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Inputs */
+input[type="text"], textarea {
+    width: 85%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background: #334155;
+    color: white;
+    transition: 0.2s;
+}
+
+input:focus, textarea:focus {
+    background: #475569;
+}
+
+/* Submit Button */
+input[type="submit"] {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 8px;
+    background: #38bdf8;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Button hover */
+button, input[type="submit"] {
+    transition: all 0.2s ease;
+}
+
+button:hover, input[type="submit"]:hover {
+    background: #0ea5e9;
+    transform: translateY(-1px);
+}
+
+/* Review Card */
+.review {
+    background: #334155;
+    padding: 18px;
+    border-radius: 12px;
+    margin-top: 15px;
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    transition: 0.2s;
+}
+
+.review:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+}
+
+/* Image */
+.anime-img {
+    width: 90px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+/* Right content */
+.review-content {
+    flex: 1;
+}
+
+/* Title */
+.review h3 {
+    margin: 0;
+    color: #38bdf8;
+}
+
+/* Text */
+.review p {
+    margin: 10px 0;
+    line-height: 1.4;
+}
+
+/* Meta */
+.review small {
+    color: #94a3b8;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Delete button */
+.review a {
+    text-decoration: none;
+    font-size: 14px;
+    margin-right: 10px;
+    color: #f87171;
+    font-weight: bold;
+}
+
+.review a:hover {
+    color: #ef4444;
+}
+
+/* Copy button */
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    background: #22c55e;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Divider */
+hr {
+    border: none;
+    border-top: 1px solid #475569;
+    margin: 20px 0;
+}
+
+/* Rating stars */
+.rating {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.star {
+    font-size: 30px;
+    cursor: pointer;
+    color: #475569;
+    transition: transform 0.15s, color 0.2s;
+}
+
+.star:hover {
+    transform: scale(1.2);
+}
+
+.star.active {
+    color: #facc15;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .content {
+        width: 90%;
+    }
+
+    input[type="text"], textarea {
+        width: 95%;
+    }
+
+    .review {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .anime-img {
+        width: 120px;
+        height: 150px;
+    }
+}

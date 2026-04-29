@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ room }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1>🎌 Room: {{ room }}</h1>
+
+<form method="POST">
+   
+    <input type="text" name="username" placeholder="Your name" required>
+    <input type="text" name="anime" placeholder="Anime title" required>
+
+    <br><br>
+    
+    <textarea name="content" placeholder="Write your review" required></textarea>
+    <br>
+
+    <!-- Rating -->
+    <div class="rating">
+        <input type="hidden" name="rating" id="rating-value" required>
+
+        <span class="star" data-value="1">★</span>
+        <span class="star" data-value="2">★</span>
+        <span class="star" data-value="3">★</span>
+        <span class="star" data-value="4">★</span>
+        <span class="star" data-value="5">★</span>
+    </div>
+
+    <br><br>
+    <input type="submit" value="Post">
+</form>
+
+<hr>
+{% for review in reviews %}
+<div class="review">
+
+   {% if review.image_url %}
+    <img src="{{ review.image_url }}" class="anime-img">
+{% else %}
+    <img src="https://via.placeholder.com/90x120" class="anime-img">
+{% endif %}
+
+    <div class="review-content">
+        <h3>{{ review.anime_title }}</h3>
+
+        <p>{{ review.content }}</p>
+
+        <small>
+            by {{ review.username }} | {{ review.date_created.strftime('%d %b %Y') }}
+        </small>
+
+        <p>
+            {% for i in range(review.rating) %}
+                ⭐
+            {% endfor %}
+        </p>
+
+        <a href="/delete/{{ review.id }}/{{ room }}">🗑 Delete</a>
+    </div>
+
+</div>
+{% endfor %}
+<br>
+
+<button onclick="copyLink()">Copy Room Link</button>
+
+
+<script>
+function copyLink() {
+    navigator.clipboard.writeText(window.location.href);
+    alert("Link copied!");
+}
+
+const stars = document.querySelectorAll('.star');
+const ratingValue = document.getElementById('rating-value');
+
+stars.forEach(star => {
+    star.addEventListener('click', () => {
+        const value = star.getAttribute('data-value');
+        ratingValue.value = value;
+
+        stars.forEach(s => s.classList.remove('active'));
+
+        for (let i = 0; i < value; i++) {
+            stars[i].classList.add('active');
+        }
+    });
+});
+</script>
+
+</body>
+</html>
